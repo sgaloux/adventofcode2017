@@ -3,7 +3,8 @@ function computeSteps(inscructions: number[]): number {
   let steps = 0;
   while (currentPosition >= 0 || currentPosition < inscructions.length) {
     const nextMoves = inscructions[currentPosition];
-    inscructions[currentPosition]++;
+
+    inscructions[currentPosition] += nextMoves >= 3 ? -1 : 1;
     if (nextMoves !== undefined) {
       steps++;
     }
